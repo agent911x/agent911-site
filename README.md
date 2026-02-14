@@ -1,4 +1,8 @@
 # ȺǤɆNŦ911 | OFFICIAL FREE FIRE PROFILE 🎯
+<p align="center">
+  <img src="Screenshot_20260202-102710.jpg" width="100%">
+</p>
+
 
 ![Free Fire](https://img.shields.io/badge/Gamer-Free--Fire-orange?style=for-the-badge&logo=garena)
 ![Status](https://img.shields.io/badge/System-Operational-green?style=for-the-badge)
