@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AGENT 911 | FREE FIRE ELITE</title>
+    <title>AGENT 911 | SMART GAMER</title>
     <style>
         :root {
             --ff-orange: #ff8c00;
@@ -11,258 +11,148 @@
             --ff-bg: #0a0a0c;
             --ff-card: #16171b;
             --ff-yellow: #ffcc00;
-            --tiktok-pink: #fe2c55;
+            --online: #2ecc71;
+            --offline: #7f8c8d;
             --shadow: 0 0 25px rgba(255, 140, 0, 0.5);
         }
 
         body {
             background-color: var(--ff-bg);
             color: #fff;
-            font-family: 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Segoe UI', sans-serif;
             margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            /* FF LOGO WATERMARK PATTERN */
             background-image: 
-                linear-gradient(rgba(10, 10, 12, 0.9), rgba(10, 10, 12, 0.9)),
+                linear-gradient(rgba(10, 10, 12, 0.8), rgba(10, 10, 12, 0.8)),
                 url('https://www.transparentpng.com/download/free-fire/logo-free-fire-png-pictures-15.png');
-            background-size: 150px; /* Controls size of watermarks */
+            background-size: 120px;
             background-repeat: repeat;
             background-attachment: fixed;
         }
 
-        .container {
-            max-width: 500px;
-            margin: 0 auto;
-            padding: 20px;
-            position: relative;
-            z-index: 2;
-        }
+        .container { max-width: 500px; margin: 0 auto; padding: 20px; }
 
-        /* Animated Glow Header */
         .profile-card {
             background: var(--ff-card);
-            border: 1px solid rgba(255, 140, 0, 0.3);
             border-top: 5px solid var(--ff-orange);
-            padding: 30px 15px;
+            padding: 25px 15px;
             text-align: center;
-            clip-path: polygon(0 0, 100% 0, 100% 90%, 90% 100%, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%);
             box-shadow: var(--shadow);
             margin-bottom: 25px;
             position: relative;
         }
 
-        .ign {
-            font-size: 2.8rem;
-            font-weight: 900;
-            color: var(--ff-yellow);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin: 0;
-            filter: drop-shadow(0 0 10px var(--ff-orange));
-        }
-
-        .lvl-badge {
-            display: inline-block;
-            background: linear-gradient(90deg, var(--ff-orange), var(--ff-red));
-            color: #fff;
-            padding: 4px 15px;
-            font-weight: 900;
-            font-size: 1rem;
-            margin-top: 10px;
-            transform: skew(-15deg);
-            border: 1px solid #fff;
-        }
-
-        /* Tactical Data Grid */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-bottom: 25px;
-        }
-
-        .stat-item {
-            background: rgba(22, 23, 27, 0.8);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 15px;
-            border-radius: 2px;
-            backdrop-filter: blur(5px);
-        }
-
-        .stat-label {
-            display: block;
-            font-size: 0.7rem;
-            color: var(--ff-orange);
-            font-weight: bold;
-            text-transform: uppercase;
-            margin-bottom: 5px;
-        }
-
-        .stat-value {
-            font-weight: bold;
-            font-size: 1rem;
-            color: #e0e0e0;
-        }
-
-        /* Interactive ID Boxes */
-        .copy-box {
-            background: linear-gradient(45deg, #1a1b1f, #25262b);
-            padding: 15px;
-            margin-bottom: 12px;
-            border-left: 5px solid var(--ff-yellow);
-            cursor: pointer;
+        .status-indicator {
+            position: absolute;
+            top: 15px;
+            right: 20px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            transition: 0.3s;
-        }
-
-        .copy-box:active {
-            transform: scale(0.98);
-            background: #25262b;
-        }
-
-        /* Elite Action Buttons */
-        .btn {
-            display: block;
-            width: 100%;
-            padding: 20px;
-            margin-bottom: 15px;
-            text-align: center;
-            text-decoration: none;
-            font-weight: 900;
+            font-size: 0.7rem;
+            font-weight: bold;
             text-transform: uppercase;
-            font-size: 1.1rem;
-            transition: 0.3s;
-            box-sizing: border-box;
-            border: none;
-            position: relative;
         }
 
-        .btn-tiktok {
-            background: linear-gradient(90deg, #fe2c55, #25f4ee);
-            color: #000;
-            clip-path: polygon(0 20%, 95% 0, 100% 80%, 5% 100%);
+        .pulse { width: 8px; height: 8px; border-radius: 50%; margin-right: 5px; }
+
+        /* Status States */
+        .is-online .pulse { background-color: var(--online); box-shadow: 0 0 10px var(--online); animation: pulse-animation 1.5s infinite; }
+        .is-online .status-text { color: var(--online); }
+        
+        .is-offline .pulse { background-color: var(--offline); box-shadow: none; animation: none; }
+        .is-offline .status-text { color: var(--offline); }
+
+        @keyframes pulse-animation {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(46, 204, 113, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
         }
 
-        .btn-whatsapp {
-            background: linear-gradient(90deg, #ff8c00, #e62020);
-            color: #fff;
-            clip-path: polygon(5% 0, 100% 20%, 95% 100%, 0 80%);
-            box-shadow: 0 5px 15px rgba(230, 32, 32, 0.4);
+        .ign { font-size: 2.5rem; font-weight: 900; color: var(--ff-yellow); text-shadow: 0 0 15px var(--ff-orange); margin: 0; }
+        
+        .lvl-badge {
+            background: #fff; 
+            color: #000; 
+            display: inline-block; 
+            padding: 2px 10px; 
+            font-weight: 900; 
+            margin-top: 10px; 
+            cursor: pointer;
         }
 
-        .footer {
-            text-align: center;
-            font-size: 0.75rem;
-            color: #666;
-            margin-top: 40px;
-            letter-spacing: 2px;
-        }
+        .v-badge { color: var(--ff-yellow); font-size: 1.8rem; vertical-align: middle; margin-left: 5px; }
 
-        #toast {
-            visibility: hidden;
-            background: var(--ff-yellow);
-            color: #000;
-            padding: 12px 25px;
-            position: fixed;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-weight: 900;
-            z-index: 1000;
-            clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
-        }
+        .skill-container { background: rgba(0,0,0,0.6); padding: 15px; margin-bottom: 25px; border: 1px solid #333; }
+        .skill-label { font-size: 0.75rem; color: var(--ff-orange); font-weight: bold; margin-bottom: 5px; display: flex; justify-content: space-between; }
+        .progress-bg { background: #222; height: 10px; width: 100%; margin-bottom: 15px; border: 1px solid #444; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--ff-orange), var(--ff-red)); box-shadow: 0 0 10px var(--ff-red); }
 
-        #toast.show { visibility: visible; animation: fadeInOut 2.5s; }
+        .btn { display: block; width: 100%; padding: 18px; margin-bottom: 12px; text-align: center; text-decoration: none; font-weight: 900; text-transform: uppercase; clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%); }
+        .btn-wa { background: var(--ff-orange); color: #000; }
+        .btn-tiktok { background: #000; color: #fff; border: 1px solid #fe2c55; }
 
-        @keyframes fadeInOut {
-            0% { bottom: 0; opacity: 0; }
-            20% { bottom: 40px; opacity: 1; }
-            80% { bottom: 40px; opacity: 1; }
-            100% { bottom: 0; opacity: 0; }
-        }
+        .copy-box { background: #1a1b1f; padding: 15px; margin-bottom: 10px; border-left: 4px solid var(--ff-yellow); display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
     </style>
 </head>
-<body>
+<body class="is-online">
 
 <div class="container">
     <div class="profile-card">
-        <h1 class="ign">ȺǤɆNŦ911</h1>
-        <div class="lvl-badge">ELITE LEVEL 65</div>
-        <p style="color: #888; font-size: 0.9rem; margin-top: 15px; letter-spacing: 1px;">
-            "NIGHT CRAWLER • RUSHER • RIFLER"
-        </p>
+        <div class="status-indicator" id="statusBox">
+            <div class="pulse"></div> 
+            <span class="status-text" id="statusLabel">Smart Gamer Online</span>
+        </div>
+        <h1 class="ign">ȺǤɆNŦ911<span class="v-badge">Ⓥ</span></h1>
+        <div class="lvl-badge" onclick="secureToggle()">LEVEL 65</div>
     </div>
 
-    <div class="stats-grid">
-        <div class="stat-item">
-            <span class="stat-label">Main Role</span>
-            <span class="stat-value">Rusher / Rifler</span>
-        </div>
-        <div class="stat-item">
-            <span class="stat-label">Play Time</span>
-            <span class="stat-value">Night Sessions</span>
-        </div>
-        <div class="stat-item" style="grid-column: span 2;">
-            <span class="stat-label">Favorite Armory</span>
-            <span class="stat-value">MP40 • M1887 • M4A1</span>
-        </div>
-        <div class="stat-item" style="grid-column: span 2;">
-            <span class="stat-label">Dominant Modes</span>
-            <span class="stat-value">BR Ranked, CS Ranked, Lone Wolf</span>
-        </div>
+    <div class="skill-container">
+        <div class="skill-label"><span>STRATEGY & IQ</span> <span>98%</span></div>
+        <div class="progress-bg"><div class="progress-fill" style="width: 98%;"></div></div>
+        <div class="skill-label"><span>RUSHER SPEED</span> <span>95%</span></div>
+        <div class="progress-bg"><div class="progress-fill" style="width: 95%;"></div></div>
+        <div class="skill-label"><span>RIFLER PRECISION</span> <span>90%</span></div>
+        <div class="progress-bg"><div class="progress-fill" style="width: 90%;"></div></div>
     </div>
 
-    <div class="copy-box" onclick="copyText('8786908180', 'PLAYER UID')">
-        <div>
-            <span style="font-size: 0.65rem; color: var(--ff-orange);">PLAYER UID</span><br>
-            <span style="font-weight: bold; font-size: 1.2rem;">8786908180</span>
-        </div>
-        <span style="font-size: 0.7rem; font-weight: bold; color: var(--ff-yellow);">TAP TO COPY</span>
+    <div class="copy-box" onclick="copyText('8786908180', 'UID')">
+        <div><span style="font-size: 0.6rem; color: #888;">PLAYER UID</span><br><b>8786908180</b></div>
+        <span style="font-size: 0.6rem; color: var(--ff-yellow);">COPY</span>
     </div>
 
-    <div class="copy-box" onclick="copyText('8786908180', 'GUILD CODE')">
-        <div>
-            <span style="font-size: 0.65rem; color: var(--ff-orange);">GUILD: ☆ÑÓVÂFØRÇÈ☆</span><br>
-            <span style="font-weight: bold; font-size: 1.2rem;">8786908180</span>
-        </div>
-        <span style="font-size: 0.7rem; font-weight: bold; color: var(--ff-yellow);">TAP TO COPY</span>
-    </div>
-
-    <br>
-
-    <div class="actions">
-        <a href="https://www.tiktok.com/@its.agent911?_r=1&_t=ZS-93tx8A0TojF" class="btn btn-tiktok" target="_blank">
-            Watch My TikTok Clips
-        </a>
-        <a href="https://chat.whatsapp.com/CvrykASFxep8pUXxcDn0B3?mode=gi_t" class="btn btn-whatsapp" target="_blank">
-            Join Freefire Legends
-        </a>
-        <a href="https://wa.me/2349118743413" style="text-align: center; display: block; color: var(--ff-orange); text-decoration: none; font-weight: bold; margin-top: 10px;">
-            CONTACT ADMIN
-        </a>
-    </div>
-
-    <div class="footer">
-        &copy; 2026 ȺǤɆNŦ911 // GARENA FREE FIRE ELITE
+    <div style="margin-top: 30px;">
+        <a href="https://chat.whatsapp.com/CvrykASFxep8pUXxcDn0B3?mode=gi_t" class="btn btn-wa">JOIN THE LEGENDS</a>
+        <a href="https://www.tiktok.com/@its.agent911?_r=1&_t=ZS-93tx8A0TojF" class="btn btn-tiktok">WATCH TIKTOK CLIPS</a>
     </div>
 </div>
 
-<div id="toast">COPIED TO CLIPBOARD!</div>
-
 <script>
+    function secureToggle() {
+        const secretCode = "911"; 
+        const entry = prompt("Enter Admin Access Code:");
+
+        if (entry === secretCode) {
+            const body = document.body;
+            const label = document.getElementById('statusLabel');
+            
+            if (body.classList.contains('is-online')) {
+                body.classList.replace('is-online', 'is-offline');
+                label.innerText = 'Smart Gamer Offline';
+            } else {
+                body.classList.replace('is-offline', 'is-online');
+                label.innerText = 'Smart Gamer Online';
+            }
+        } else {
+            alert("ACCESS DENIED.");
+        }
+    }
+
     function copyText(text, label) {
-        navigator.clipboard.writeText(text).then(() => {
-            const toast = document.getElementById("toast");
-            toast.innerText = label + " COPIED!";
-            toast.className = "show";
-            setTimeout(() => { toast.className = ""; }, 2500);
-        });
+        navigator.clipboard.writeText(text);
+        alert(label + " COPIED!");
     }
 </script>
 
 </body>
-            </html>
-    
+                                     </html>
+
