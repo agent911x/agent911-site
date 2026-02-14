@@ -22,7 +22,7 @@
             font-family: 'Segoe UI', sans-serif;
             margin: 0;
             background-image: 
-                linear-gradient(rgba(10, 10, 12, 0.8), rgba(10, 10, 12, 0.8)),
+                linear-gradient(rgba(10, 10, 12, 0.85), rgba(10, 10, 12, 0.85)),
                 url('https://www.transparentpng.com/download/free-fire/logo-free-fire-png-pictures-15.png');
             background-size: 120px;
             background-repeat: repeat;
@@ -43,23 +43,14 @@
         }
 
         .status-indicator {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            display: flex;
-            align-items: center;
-            font-size: 0.7rem;
-            font-weight: bold;
-            text-transform: uppercase;
+            position: absolute; top: 15px; right: 20px;
+            display: flex; align-items: center; font-size: 0.7rem; font-weight: bold; text-transform: uppercase;
         }
 
         .pulse { width: 8px; height: 8px; border-radius: 50%; margin-right: 5px; }
-
-        /* Status States */
         .is-online .pulse { background-color: var(--online); box-shadow: 0 0 10px var(--online); animation: pulse-animation 1.5s infinite; }
         .is-online .status-text { color: var(--online); }
-        
-        .is-offline .pulse { background-color: var(--offline); box-shadow: none; animation: none; }
+        .is-offline .pulse { background-color: var(--offline); }
         .is-offline .status-text { color: var(--offline); }
 
         @keyframes pulse-animation {
@@ -69,18 +60,24 @@
         }
 
         .ign { font-size: 2.5rem; font-weight: 900; color: var(--ff-yellow); text-shadow: 0 0 15px var(--ff-orange); margin: 0; }
-        
-        .lvl-badge {
-            background: #fff; 
-            color: #000; 
-            display: inline-block; 
-            padding: 2px 10px; 
-            font-weight: 900; 
-            margin-top: 10px; 
-            cursor: pointer;
+        .lvl-badge { background: #fff; color: #000; display: inline-block; padding: 2px 10px; font-weight: 900; margin-top: 10px; cursor: pointer; }
+        .v-badge { color: var(--ff-yellow); font-size: 1.8rem; vertical-align: middle; margin-left: 5px; }
+
+        .booyah-banner {
+            background: linear-gradient(90deg, #ffcc00, #ff8c00);
+            color: #000;
+            padding: 10px;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 20px;
+            clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+            display: flex; justify-content: space-around; align-items: center;
         }
 
-        .v-badge { color: var(--ff-yellow); font-size: 1.8rem; vertical-align: middle; margin-left: 5px; }
+        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 25px; }
+        .stat-item { background: rgba(22, 23, 27, 0.8); border: 1px solid rgba(255, 255, 255, 0.1); padding: 15px; border-radius: 2px; }
+        .stat-label { display: block; font-size: 0.7rem; color: var(--ff-orange); font-weight: bold; text-transform: uppercase; margin-bottom: 5px; }
+        .stat-value { font-weight: bold; font-size: 1rem; color: #e0e0e0; }
 
         .skill-container { background: rgba(0,0,0,0.6); padding: 15px; margin-bottom: 25px; border: 1px solid #333; }
         .skill-label { font-size: 0.75rem; color: var(--ff-orange); font-weight: bold; margin-bottom: 5px; display: flex; justify-content: space-between; }
@@ -106,18 +103,41 @@
         <div class="lvl-badge" onclick="secureToggle()">LEVEL 65</div>
     </div>
 
+    <div class="booyah-banner">
+        <span>🏆 RECENT BOOYAH!</span>
+        <span id="booyahCount">TOTAL: 450</span>
+    </div>
+
+    <div class="stats-grid">
+        <div class="stat-item">
+            <span class="stat-label">Main Role</span>
+            <span class="stat-value">Rusher / Rifler</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">Active Time</span>
+            <span class="stat-value">Night Sessions</span>
+        </div>
+        <div class="stat-item" style="grid-column: span 2;">
+            <span class="stat-label">Favorite Weapons</span>
+            <span class="stat-value">MP40, M1887, M4A1</span>
+        </div>
+    </div>
+
     <div class="skill-container">
         <div class="skill-label"><span>STRATEGY & IQ</span> <span>98%</span></div>
         <div class="progress-bg"><div class="progress-fill" style="width: 98%;"></div></div>
         <div class="skill-label"><span>RUSHER SPEED</span> <span>95%</span></div>
         <div class="progress-bg"><div class="progress-fill" style="width: 95%;"></div></div>
-        <div class="skill-label"><span>RIFLER PRECISION</span> <span>90%</span></div>
-        <div class="progress-bg"><div class="progress-fill" style="width: 90%;"></div></div>
     </div>
 
     <div class="copy-box" onclick="copyText('8786908180', 'UID')">
-        <div><span style="font-size: 0.6rem; color: #888;">PLAYER UID</span><br><b>8786908180</b></div>
-        <span style="font-size: 0.6rem; color: var(--ff-yellow);">COPY</span>
+        <div><span style="font-size: 0.6rem; color: #888;">UID: ☆ÑÓVÂFØRÇÈ☆</span><br><b>8786908180</b></div>
+        <span style="font-size: 0.6rem; color: var(--ff-yellow);">COPY UID</span>
+    </div>
+
+    <div class="copy-box" onclick="copyText('+2349118743413', 'PHONE')">
+        <div><span style="font-size: 0.6rem; color: #888;">CONTACT ADMIN</span><br><b>+234 911 874 3413</b></div>
+        <span style="font-size: 0.6rem; color: var(--ff-yellow);">COPY NO</span>
     </div>
 
     <div style="margin-top: 30px;">
@@ -129,12 +149,14 @@
 <script>
     function secureToggle() {
         const secretCode = "911"; 
-        const entry = prompt("Enter Admin Access Code:");
+        const entry = prompt("ADMIN CODE:");
 
         if (entry === secretCode) {
+            const newCount = prompt("Update Total Booyahs:");
+            if(newCount) { document.getElementById('booyahCount').innerText = "TOTAL: " + newCount; }
+
             const body = document.body;
             const label = document.getElementById('statusLabel');
-            
             if (body.classList.contains('is-online')) {
                 body.classList.replace('is-online', 'is-offline');
                 label.innerText = 'Smart Gamer Offline';
@@ -142,9 +164,7 @@
                 body.classList.replace('is-offline', 'is-online');
                 label.innerText = 'Smart Gamer Online';
             }
-        } else {
-            alert("ACCESS DENIED.");
-        }
+        } else { alert("ACCESS DENIED."); }
     }
 
     function copyText(text, label) {
@@ -154,5 +174,5 @@
 </script>
 
 </body>
-                                     </html>
-
+            </html>
+            
