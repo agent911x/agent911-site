@@ -16,6 +16,10 @@ Welcome to the official tactical profile of **AGENT 911**. This site is a dedica
 * **Signature Weapons:** MP40, M1887, M4A1
 * **Best Modes:** BR Ranked, CS Ranked, Lone Wolf
 
+<p align="center">
+  <img src="Screenshot_20260212-131605.jpg" width="100%">
+</p>
+
 ## ⚔️ Guild Info
 * **Guild Name:** ☆ÑÓVÂFØRÇÈ☆
 * **Guild Code:** 8786908180
