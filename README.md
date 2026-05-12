@@ -26,7 +26,10 @@ Welcome to the official tactical profile of **AGENT 911**. This site is a dedica
 ## ⚔️ Guild Info
 * **Guild Name:** LEGENDS
 * **Guild Code:**  3077565235
-
+<p align="center">
+  <img src="Screenshot_20260501-171638_Free Fire MAX.png"
+width="100%">
+</p>
 ## 🔗 Connect With Me
 * **WhatsApp Agent911:** [Message Me](https://wa.me/2349069922503)
 * **TikTok Clips:** [@its.agent911](https://www.tiktok.com/@its.agent911?_r=1&_t=ZS-93tx8A0TojF)
