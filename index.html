@@ -87,5 +87,197 @@
         .welcome-badge {
             font-family: 'Share Tech Mono', monospace;
             font-size: 0.85rem;
-            color: var
-        
+            color: var(--neon-blue);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+            text-shadow: 0 0 5px var(--neon-blue);
+        }
+
+        h1 {
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 2rem;
+            color: #ffffff;
+            text-shadow: 0 0 10px var(--electric-glow);
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            font-family: 'Share Tech Mono', monospace;
+        }
+
+        /* UID Box */
+        .uid-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(0, 136, 255, 0.08);
+            border: 1px dashed var(--neon-blue);
+            border-radius: 8px;
+            padding: 10px 15px;
+            margin-bottom: 20px;
+        }
+
+        .uid-info {
+            text-align: left;
+            font-family: 'Share Tech Mono', monospace;
+        }
+
+        .uid-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .uid-value {
+            font-size: 1.1rem;
+            color: var(--neon-blue);
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .copy-btn {
+            background: var(--neon-blue);
+            color: #030712;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Share Tech Mono', monospace;
+            font-weight: bold;
+            font-size: 0.8rem;
+            transition: all 0.2s;
+            box-shadow: 0 0 8px var(--neon-blue);
+        }
+
+        .copy-btn:hover {
+            background: #ffffff;
+            box-shadow: 0 0 12px #ffffff;
+        }
+
+        /* Action Buttons */
+        .action-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            width: 100%;
+            background: linear-gradient(135deg, rgba(0, 136, 255, 0.2), rgba(0, 243, 255, 0.1));
+            border: 1px solid var(--neon-blue);
+            border-radius: 8px;
+            padding: 14px 20px;
+            margin-bottom: 15px;
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 243, 255, 0.15);
+        }
+
+        .action-btn i {
+            font-size: 1.3rem;
+            color: var(--neon-blue);
+            text-shadow: 0 0 8px var(--neon-blue);
+        }
+
+        .action-btn:hover {
+            background: rgba(0, 243, 255, 0.25);
+            border-color: #ffffff;
+            box-shadow: 0 0 18px var(--neon-blue);
+            transform: translateY(-2px);
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--neon-blue);
+            color: #030712;
+            padding: 10px 22px;
+            border-radius: 6px;
+            font-family: 'Share Tech Mono', monospace;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+            box-shadow: 0 0 15px var(--neon-blue);
+            z-index: 1000;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        footer {
+            margin-top: 15px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-family: 'Share Tech Mono', monospace;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Avatar / Banner Theme Image -->
+        <div class="avatar-container">
+            <img src="bot_image.jpg" alt="AGENT911" class="avatar" onerror="this.src='https://via.placeholder.com/110/030712/00f3ff?text=911'">
+        </div>
+
+        <div class="welcome-badge">// System Online //</div>
+        <h1>WELCOME TO 911 HUB</h1>
+        <div class="subtitle">What would you like to do?</div>
+
+        <!-- Free Fire UID Quick Copy -->
+        <div class="uid-box">
+            <div class="uid-info">
+                <div class="uid-label">FREE FIRE UID (V-BADGE)</div>
+                <div class="uid-value">8786908180</div>
+            </div>
+            <button class="copy-btn" onclick="copyUID()"><i class="fa-solid fa-copy"></i> COPY</button>
+        </div>
+
+        <!-- Button 1: Join WhatsApp Group -->
+        <a href="https://chat.whatsapp.com/FByxgfuSRLS67x157Wrm74?s=cl&p=a&mlu=4&ilr=4&iam=2" target="_blank" class="action-btn">
+            <i class="fa-brands fa-whatsapp"></i>
+            Join Free Fire Legends
+        </a>
+
+        <!-- Button 2: View TikTok Profile -->
+        <a href="https://www.tiktok.com/@its.agent911?_r=1&_t=ZS-9BSiFhZV8De" target="_blank" class="action-btn">
+            <i class="fa-brands fa-tiktok"></i>
+            View TikTok Profile
+        </a>
+
+        <!-- Button 3: Chat with Agent911 -->
+        <a href="https://wa.me/2349069922503?text=Hello%20Agent911,%20I%20came%20from%20your%20hub!" target="_blank" class="action-btn">
+            <i class="fa-solid fa-comment-dots"></i>
+            Chat with Agent911
+        </a>
+
+        <footer>PLAY HARD • WIN ALWAYS • BE LEGENDARY</footer>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="toast">UID 8786908180 Copied!</div>
+
+    <script>
+        function copyUID() {
+            const uid = "8786908180";
+            navigator.clipboard.writeText(uid).then(() => {
+                const toast = document.getElementById("toast");
+                toast.classList.add("show");
+                setTimeout(() => {
+                    toast.classList.remove("show");
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
