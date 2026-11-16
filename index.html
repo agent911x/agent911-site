@@ -1,283 +1,779 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AGENT911 | Official Hub</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --bg-deep: #030712;
-            --panel-bg: rgba(5, 13, 30, 0.85);
-            --neon-blue: #00f3ff;
-            --electric-glow: #0088ff;
-            --text-main: #f0fdf4;
-            --text-muted: #93c5fd;
-            --border-glow: rgba(0, 243, 255, 0.5);
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>AGENT911 | Official Gaming Hub</title><meta name="description" content="Welcome to AGENT911 Official Hub. Explore Free Fire, Free Fire Legends, gaming content and connect with AGENT911."><link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><style>
+
+:root {
+    --bg: #020814;
+    --panel: #071629;
+    --cyan: #00f3ff;
+    --blue: #0088ff;
+    --white: #ffffff;
+    --muted: #94b9db;
+    --border: rgba(0,243,255,.35);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: 'Rajdhani', sans-serif;
+    overflow-x: hidden;
+}
+
+/* BACKGROUND */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+
+    background:
+    radial-gradient(circle at 50% 10%, rgba(0,136,255,.18), transparent 40%),
+    radial-gradient(circle at 10% 80%, rgba(0,243,255,.08), transparent 40%),
+    repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 3px,
+        rgba(0,243,255,.015) 4px
+    );
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 10;
+    opacity: .12;
+
+    background: repeating-linear-gradient(
+        transparent 0px,
+        transparent 3px,
+        rgba(0,243,255,.08) 4px
+    );
+}
+
+/* NAVIGATION */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(2,8,20,.92);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar {
+    max-width: 1150px;
+    margin: auto;
+    padding: 15px 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.4rem;
+    color: var(--cyan);
+    text-shadow: 0 0 12px var(--cyan);
+}
+
+.logo span {
+    color: white;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: .95rem;
+    font-weight: 700;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: var(--cyan);
+    text-shadow: 0 0 10px var(--cyan);
+}
+
+.menu-btn {
+    display: none;
+    color: var(--cyan);
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* GENERAL SECTIONS */
+
+section {
+    max-width: 1100px;
+    margin: auto;
+    padding: 85px 20px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 12px var(--blue);
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--muted);
+    font-family: 'Share Tech Mono', monospace;
+    margin-bottom: 40px;
+    font-size: .85rem;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-card {
+    width: 100%;
+    max-width: 700px;
+    padding: 45px 25px;
+
+    background: rgba(5,15,32,.85);
+    border: 2px solid var(--cyan);
+    border-radius: 20px;
+
+    box-shadow:
+    0 0 30px rgba(0,243,255,.25),
+    inset 0 0 30px rgba(0,243,255,.05);
+
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 3px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        white,
+        var(--cyan),
+        transparent
+    );
+
+    animation: scan 4s linear infinite;
+}
+
+@keyframes scan {
+    100% { left: 100%; }
+}
+
+.avatar-container {
+    width: 155px;
+    height: 155px;
+    margin: 0 auto 25px;
+}
+
+.avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--cyan);
+
+    box-shadow: 0 0 25px var(--cyan);
+}
+
+.system-status {
+    color: var(--cyan);
+    font-family: 'Share Tech Mono', monospace;
+    letter-spacing: 4px;
+    margin-bottom: 12px;
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 7vw, 4rem);
+    font-weight: 800;
+    line-height: 1.1;
+    text-shadow: 0 0 20px var(--blue);
+}
+
+.hero h1 span {
+    color: var(--cyan);
+}
+
+.hero-description {
+    color: var(--muted);
+    font-family: 'Share Tech Mono', monospace;
+    margin: 18px 0 30px;
+}
+
+.primary-btn {
+    display: inline-block;
+    background: var(--cyan);
+    color: #00101b;
+    padding: 13px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 800;
+    box-shadow: 0 0 18px var(--cyan);
+    transition: .3s;
+}
+
+.primary-btn:hover {
+    background: white;
+    transform: translateY(-4px);
+    box-shadow: 0 0 25px white;
+}
+
+/* UID */
+
+.uid-box {
+    max-width: 450px;
+    margin: 30px auto 0;
+    padding: 15px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+
+    border: 1px dashed var(--cyan);
+    border-radius: 10px;
+    background: rgba(0,136,255,.08);
+}
+
+.uid-label {
+    color: var(--muted);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: .75rem;
+}
+
+.uid-value {
+    color: var(--cyan);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.copy-btn {
+    border: none;
+    padding: 10px 15px;
+    background: var(--cyan);
+    color: #00101b;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* PROFILE CARDS */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    padding: 28px 20px;
+    background: rgba(7,22,41,.85);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    text-align: center;
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+    border-color: var(--cyan);
+    box-shadow: 0 0 20px rgba(0,243,255,.2);
+}
+
+.card i {
+    font-size: 2rem;
+    color: var(--cyan);
+    margin-bottom: 15px;
+    text-shadow: 0 0 12px var(--cyan);
+}
+
+.card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+}
+
+.card p {
+    color: var(--muted);
+    font-size: 1rem;
+}
+
+/* COMMUNITY */
+
+.community-box {
+    text-align: center;
+    padding: 45px 20px;
+    background: linear-gradient(135deg, #071629, #032c43);
+    border: 1px solid var(--cyan);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0,243,255,.1);
+}
+
+.community-box i {
+    font-size: 3rem;
+    color: var(--cyan);
+    margin-bottom: 20px;
+}
+
+.community-box h3 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.community-box p {
+    color: var(--muted);
+    margin-bottom: 25px;
+}
+
+/* MEDIA CENTER */
+
+.media-card {
+    padding: 30px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    text-align: center;
+}
+
+.media-card i {
+    font-size: 3rem;
+    color: var(--cyan);
+    margin-bottom: 15px;
+}
+
+.media-card p {
+    color: var(--muted);
+    margin: 10px 0 20px;
+}
+
+/* CONTACT */
+
+.contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.contact-links a {
+    text-decoration: none;
+    color: white;
+    border: 1px solid var(--cyan);
+    padding: 15px 22px;
+    border-radius: 8px;
+    transition: .3s;
+}
+
+.contact-links a:hover {
+    background: var(--cyan);
+    color: #00101b;
+    box-shadow: 0 0 20px var(--cyan);
+}
+
+.contact-links i {
+    margin-right: 8px;
+}
+
+/* FOOTER */
+
+footer {
+    border-top: 1px solid var(--border);
+    padding: 30px 15px;
+    text-align: center;
+    background: rgba(0,0,0,.3);
+}
+
+footer p {
+    color: var(--muted);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: .8rem;
+    letter-spacing: 2px;
+}
+
+footer .copyright {
+    margin-top: 15px;
+    letter-spacing: 1px;
+}
+
+/* SYSTEM CLOCK */
+
+.clock {
+    color: var(--cyan);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: .85rem;
+    margin-top: 15px;
+}
+
+/* TOAST */
+
+.toast {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translate(-50%, 100px);
+
+    padding: 12px 22px;
+    background: var(--cyan);
+    color: #00101b;
+    border-radius: 6px;
+    font-weight: bold;
+
+    z-index: 200;
+    transition: .3s;
+}
+
+.toast.show {
+    transform: translate(-50%, 0);
+}
+
+/* BACK TO TOP */
+
+.top-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 20px;
+
+    width: 45px;
+    height: 45px;
+
+    background: var(--cyan);
+    color: #00101b;
+    border: none;
+    border-radius: 50%;
+
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 0 15px var(--cyan);
+    z-index: 90;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: .3s;
+}
+
+.top-btn.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* REVEAL ANIMATION */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: .7s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* MOBILE */
+
+@media(max-width: 700px) {
+
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 65px;
+        left: 0;
+        width: 100%;
+
+        display: none;
+        flex-direction: column;
+        gap: 0;
+
+        background: rgba(2,8,20,.98);
+        border-bottom: 1px solid var(--cyan);
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: 15px 25px;
+        border-top: 1px solid rgba(0,243,255,.1);
+    }
+
+    .hero {
+        min-height: 80vh;
+    }
+
+    .hero-card {
+        padding: 35px 15px;
+    }
+
+    section {
+        padding: 65px 18px;
+    }
+
+    .uid-box {
+        padding: 10px;
+    }
+
+    .uid-value {
+        font-size: 1rem;
+    }
+
+    .copy-btn {
+        padding: 9px;
+    }
+}
+
+</style></head><body><!-- NAVIGATION --><header>
+<nav class="navbar"><div class="logo">911<span> HUB</span></div><button class="menu-btn" id="menuBtn" aria-label="Open navigation">
+<i class="fa-solid fa-bars"></i>
+</button><div class="nav-links" id="navLinks">
+<a href="#home">HOME</a>
+<a href="#profile">PROFILE</a>
+<a href="#community">COMMUNITY</a>
+<a href="#media">MEDIA</a>
+<a href="#contact">CONTACT</a>
+</div></nav>
+</header><!-- HERO SECTION --><section class="hero" id="home"><div class="hero-card"><div class="avatar-container">
+<img src="bot_image.jpg"
+alt="AGENT911 Gaming Character"
+class="avatar"
+onerror="this.style.display='none'">
+</div><div class="system-status">
+// SYSTEM ONLINE //
+</div><h1>WELCOME TO <span>911 HUB</span></h1><p class="hero-description">
+YOUR DESTINATION. YOUR COMMUNITY. YOUR LEGACY.
+</p><a href="#profile" class="primary-btn">
+<i class="fa-solid fa-terminal"></i>
+EXPLORE 911 HUB
+</a><div class="uid-box"><div>
+<div class="uid-label">FREE FIRE UID (V-BADGE)</div>
+<div class="uid-value">8786908180</div>
+</div><button class="copy-btn" onclick="copyUID()">
+<i class="fa-solid fa-copy"></i> COPY
+</button></div><div class="clock" id="clock">SYSTEM TIME: --:--:--</div></div>
+</section><!-- PROFILE --><section id="profile" class="reveal"><h2 class="section-title">AGENT911 PROFILE</h2><p class="section-subtitle">
+// PLAYER IDENTIFICATION //
+</p><div class="grid"><div class="card">
+<i class="fa-solid fa-user-astronaut"></i>
+<h3>GAMING IDENTITY</h3>
+<p>AGENT911</p>
+</div><div class="card">
+<i class="fa-solid fa-gamepad"></i>
+<h3>MAIN GAME</h3>
+<p>FREE FIRE</p>
+</div><div class="card">
+<i class="fa-solid fa-server"></i>
+<h3>SERVER</h3>
+<p>MENA</p>
+</div><div class="card">
+<i class="fa-solid fa-trophy"></i>
+<h3>RANK GOAL</h3>
+<p>MASTER</p>
+</div></div></section><!-- COMMUNITY --><section id="community" class="reveal"><h2 class="section-title">FREE FIRE LEGENDS</h2><p class="section-subtitle">
+// RISE TOGETHER. FIGHT TOGETHER. WIN TOGETHER. //
+</p><div class="community-box"><i class="fa-brands fa-whatsapp"></i>
+
+<h3>JOIN THE LEGENDS</h3><p>
+Become part of the Free Fire Legends community.
+Connect with players, share experiences and enjoy the game together.
+</p><a href="https://chat.whatsapp.com/FByxgfuSRLS67x157Wrm74?s=cl&p=a&mlu=4&ilr=4&iam=2"
+target="_blank"
+rel="noopener noreferrer"
+class="primary-btn">
+
+<i class="fa-brands fa-whatsapp"></i>
+JOIN COMMUNITY
+
+</a></div></section><!-- MEDIA CENTER --><section id="media" class="reveal"><h2 class="section-title">911 MEDIA CENTER</h2><p class="section-subtitle">
+// GAMEPLAY. CONTENT. ENTERTAINMENT. //
+</p><div class="media-card"><i class="fa-brands fa-tiktok"></i>
+
+<h3>AGENT911 ON TIKTOK</h3><p>
+Watch Free Fire gameplay, funny moments, clutch highlights and more.
+</p><a href="https://www.tiktok.com/@its.agent911?_r=1&_t=ZS-9BSiFhZV8De"
+target="_blank"
+rel="noopener noreferrer"
+class="primary-btn">
+
+EXPLORE CONTENT
+
+</a></div></section><!-- CONTACT --><section id="contact" class="reveal"><h2 class="section-title">CONNECT WITH 911</h2><p class="section-subtitle">
+// ESTABLISH CONNECTION //
+</p><div class="contact-links"><a href="https://wa.me/2349069922503?text=Hello%20Agent911,%20I%20came%20from%20your%20hub!"
+target="_blank" rel="noopener noreferrer">
+
+<i class="fa-brands fa-whatsapp"></i>
+WHATSAPP
+
+</a><a href="https://www.tiktok.com/@its.agent911?_r=1&_t=ZS-9BSiFhZV8De"
+target="_blank" rel="noopener noreferrer">
+
+<i class="fa-brands fa-tiktok"></i>
+TIKTOK
+
+</a></div></section><!-- FOOTER --><footer><p>PLAY HARD • WIN ALWAYS • BE LEGENDARY</p><div class="clock">
+911 SYSTEM STATUS: <span style="color:#00ff88">ONLINE</span>
+</div><p class="copyright">
+© 2026 AGENT911 | ALL RIGHTS RESERVED
+</p></footer><!-- TOAST --><div id="toast" class="toast">
+UID COPIED SUCCESSFULLY!
+</div><!-- BACK TO TOP --><button class="top-btn" id="topBtn" aria-label="Back to top">
+<i class="fa-solid fa-arrow-up"></i>
+</button><script>
+
+// COPY UID
+
+function copyUID() {
+
+    const uid = "8786908180";
+
+    function showToast(message) {
+        const toast = document.getElementById("toast");
+        toast.textContent = message;
+        toast.classList.add("show");
+
+        setTimeout(() => {
+            toast.classList.remove("show");
+        }, 2000);
+    }
+
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(uid)
+            .then(() => showToast("UID COPIED SUCCESSFULLY!"))
+            .catch(() => showToast("COPY FAILED. PLEASE COPY MANUALLY."));
+    } else {
+        const input = document.createElement("textarea");
+        input.value = uid;
+        document.body.appendChild(input);
+        input.select();
+
+        try {
+            document.execCommand("copy");
+            showToast("UID COPIED SUCCESSFULLY!");
+        } catch (error) {
+            showToast("COPY FAILED. PLEASE COPY MANUALLY.");
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+        input.remove();
+    }
+}
+
+
+// MOBILE NAVIGATION
+
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+    navLinks.classList.toggle("show");
+
+    menuBtn.innerHTML = navLinks.classList.contains("show")
+        ? '<i class="fa-solid fa-xmark"></i>'
+        : '<i class="fa-solid fa-bars"></i>';
+});
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("show");
+        menuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+    });
+});
+
+
+// LIVE CLOCK
+
+function updateClock() {
+
+    const now = new Date();
+
+    document.getElementById("clock").textContent =
+        "SYSTEM TIME: " +
+        now.toLocaleTimeString("en-GB", {
+            timeZone: "Africa/Lagos"
+        });
+
+}
+
+updateClock();
+setInterval(updateClock, 1000);
+
+
+// SCROLL REVEAL
+
+const observer = new IntersectionObserver(entries => {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+            entry.target.classList.add("active");
         }
 
-        body {
-            background-color: var(--bg-deep);
-            background-image: 
-                radial-gradient(circle at 50% 15%, rgba(0, 136, 255, 0.18) 0%, transparent 60%),
-                radial-gradient(circle at 20% 80%, rgba(0, 243, 255, 0.1) 0%, transparent 50%),
-                linear-gradient(rgba(0,0,0,0.6) 50%, rgba(0, 136, 255, 0.03) 50%);
-            background-size: 100% 4px;
-            font-family: 'Rajdhani', sans-serif;
-            color: var(--text-main);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
+    });
 
-        .container {
-            width: 100%;
-            max-width: 440px;
-            background: var(--panel-bg);
-            border: 2px solid var(--neon-blue);
-            box-shadow: 0 0 25px var(--border-glow), inset 0 0 20px rgba(0, 243, 255, 0.1);
-            border-radius: 16px;
-            padding: 30px 20px;
-            text-align: center;
-            backdrop-filter: blur(12px);
-            position: relative;
-            overflow: hidden;
-        }
+}, { threshold: 0.12 });
 
-        /* Lightning energy top border line */
-        .container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--neon-blue), #ffffff, var(--neon-blue), transparent);
-            box-shadow: 0 0 10px var(--neon-blue);
-        }
+document.querySelectorAll(".reveal").forEach(element => {
+    observer.observe(element);
+});
 
-        .avatar-container {
-            position: relative;
-            width: 110px;
-            height: 110px;
-            margin: 0 auto 15px auto;
-        }
 
-        .avatar {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            border: 2px solid var(--neon-blue);
-            box-shadow: 0 0 15px var(--neon-blue), inset 0 0 10px var(--electric-glow);
-            object-fit: cover;
-            background: #000;
-        }
+// BACK TO TOP
 
-        .welcome-badge {
-            font-family: 'Share Tech Mono', monospace;
-            font-size: 0.85rem;
-            color: var(--neon-blue);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 5px;
-            text-shadow: 0 0 5px var(--neon-blue);
-        }
+const topBtn = document.getElementById("topBtn");
 
-        h1 {
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            font-size: 2rem;
-            color: #ffffff;
-            text-shadow: 0 0 10px var(--electric-glow);
-            letter-spacing: 1px;
-            margin-bottom: 5px;
-        }
+window.addEventListener("scroll", () => {
 
-        .subtitle {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            margin-bottom: 25px;
-            font-family: 'Share Tech Mono', monospace;
-        }
+    if (window.scrollY > 400) {
+        topBtn.classList.add("visible");
+    } else {
+        topBtn.classList.remove("visible");
+    }
 
-        /* UID Box */
-        .uid-box {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: rgba(0, 136, 255, 0.08);
-            border: 1px dashed var(--neon-blue);
-            border-radius: 8px;
-            padding: 10px 15px;
-            margin-bottom: 20px;
-        }
+});
 
-        .uid-info {
-            text-align: left;
-            font-family: 'Share Tech Mono', monospace;
-        }
+topBtn.addEventListener("click", () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
 
-        .uid-label {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-        }
-
-        .uid-value {
-            font-size: 1.1rem;
-            color: var(--neon-blue);
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-
-        .copy-btn {
-            background: var(--neon-blue);
-            color: #030712;
-            border: none;
-            padding: 6px 12px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-family: 'Share Tech Mono', monospace;
-            font-weight: bold;
-            font-size: 0.8rem;
-            transition: all 0.2s;
-            box-shadow: 0 0 8px var(--neon-blue);
-        }
-
-        .copy-btn:hover {
-            background: #ffffff;
-            box-shadow: 0 0 12px #ffffff;
-        }
-
-        /* Action Buttons */
-        .action-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            width: 100%;
-            background: linear-gradient(135deg, rgba(0, 136, 255, 0.2), rgba(0, 243, 255, 0.1));
-            border: 1px solid var(--neon-blue);
-            border-radius: 8px;
-            padding: 14px 20px;
-            margin-bottom: 15px;
-            text-decoration: none;
-            color: #ffffff;
-            font-weight: 700;
-            font-size: 1.1rem;
-            letter-spacing: 0.5px;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 10px rgba(0, 243, 255, 0.15);
-        }
-
-        .action-btn i {
-            font-size: 1.3rem;
-            color: var(--neon-blue);
-            text-shadow: 0 0 8px var(--neon-blue);
-        }
-
-        .action-btn:hover {
-            background: rgba(0, 243, 255, 0.25);
-            border-color: #ffffff;
-            box-shadow: 0 0 18px var(--neon-blue);
-            transform: translateY(-2px);
-        }
-
-        .toast {
-            position: fixed;
-            bottom: 25px;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            background: var(--neon-blue);
-            color: #030712;
-            padding: 10px 22px;
-            border-radius: 6px;
-            font-family: 'Share Tech Mono', monospace;
-            font-weight: bold;
-            transition: transform 0.3s ease;
-            box-shadow: 0 0 15px var(--neon-blue);
-            z-index: 1000;
-        }
-
-        .toast.show {
-            transform: translateX(-50%) translateY(0);
-        }
-
-        footer {
-            margin-top: 15px;
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            font-family: 'Share Tech Mono', monospace;
-            letter-spacing: 1px;
-        }
-    </style>
-</head>
-<body>
-
-    <div class="container">
-        <!-- Avatar / Banner Theme Image -->
-        <div class="avatar-container">
-            <img src="bot_image.jpg" alt="AGENT911" class="avatar" onerror="this.src='https://via.placeholder.com/110/030712/00f3ff?text=911'">
-        </div>
-
-        <div class="welcome-badge">// System Online //</div>
-        <h1>WELCOME TO 911 HUB</h1>
-        <div class="subtitle">What would you like to do?</div>
-
-        <!-- Free Fire UID Quick Copy -->
-        <div class="uid-box">
-            <div class="uid-info">
-                <div class="uid-label">FREE FIRE UID (V-BADGE)</div>
-                <div class="uid-value">8786908180</div>
-            </div>
-            <button class="copy-btn" onclick="copyUID()"><i class="fa-solid fa-copy"></i> COPY</button>
-        </div>
-
-        <!-- Button 1: Join WhatsApp Group -->
-        <a href="https://chat.whatsapp.com/FByxgfuSRLS67x157Wrm74?s=cl&p=a&mlu=4&ilr=4&iam=2" target="_blank" class="action-btn">
-            <i class="fa-brands fa-whatsapp"></i>
-            Join Free Fire Legends
-        </a>
-
-        <!-- Button 2: View TikTok Profile -->
-        <a href="https://www.tiktok.com/@its.agent911?_r=1&_t=ZS-9BSiFhZV8De" target="_blank" class="action-btn">
-            <i class="fa-brands fa-tiktok"></i>
-            View TikTok Profile
-        </a>
-
-        <!-- Button 3: Chat with Agent911 -->
-        <a href="https://wa.me/2349069922503?text=Hello%20Agent911,%20I%20came%20from%20your%20hub!" target="_blank" class="action-btn">
-            <i class="fa-solid fa-comment-dots"></i>
-            Chat with Agent911
-        </a>
-
-        <footer>PLAY HARD • WIN ALWAYS • BE LEGENDARY</footer>
-    </div>
-
-    <!-- Notification Toast -->
-    <div id="toast" class="toast">UID 8786908180 Copied!</div>
-
-    <script>
-        function copyUID() {
-            const uid = "8786908180";
-            navigator.clipboard.writeText(uid).then(() => {
-                const toast = document.getElementById("toast");
-                toast.classList.add("show");
-                setTimeout(() => {
-                    toast.classList.remove("show");
-                }, 2000);
-            });
-        }
-    </script>
-</body>
-</html>
+</script></body>
+    </html>
